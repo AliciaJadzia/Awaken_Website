@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Import and configure the Firebase SDK -->
+    <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
+    <!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+    <script src="/__/firebase/8.7.1/firebase-app.js"></script>
+    <script src="/__/firebase/8.7.1/firebase-auth.js"></script>
+    <script src="/__/firebase/init.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awaken :: Welcome</title>
+</head>
+
+<body>
+
+    <div class="topnav">
+
+        <div class="title">
+            Welcome to Awaken
+        </div>
+
+        <div> <a href="dashboard.html"><button class="dashbutton">Dashboard</button></a></div>
+        <div> <a href="login.html"><button class="loginbutton"> Log in </button></a></div>
+        <div> <a href="signup.html"><button class="signupbutton"> Sign up </button></a></div>
+
+    </div>
+
+
+    <div class="subtitle">
+        A caring and smart alarm clock for neurodivergent people.
+    </div>
+
+
+    <div class="des">Objective:</div>
+
+    <div class="text">
+        Build a smart alarm clock that can wake up the heaviest sleeper, track metrics, and provide insight on sleeping
+        patterns.
+    </div>
+
+    <div class="des">Why:</div>
+
+    <div class="text">
+        As someone with ADHD, I struggle with insomnia, inconsistent sleep patterns, and executive dysfunction, as well
+        as
+        the “Can’t sleep because going to sleep requires being bored for a small amount of time” phenomenon. Although
+        medication helps, sticking to a sleep routine is still hard.
+    </div>
+
+    <div class="des">Metrics to track:</div>
+    <div class="text">
+        <ul>
+            <li> T2W: Time to wake up, time between alarm and cancellation of alarm.</li>
+            <li> ESAT: Effective sleep attempt time, last time when the phone was active due to user input.</li>
+            <li> TUS: Time of undisturbed sleep, time between ESAT and Alarm.</li>
+            <li> SRC: Sleep reincidence counter, periodic check of awakeness. (Initial interval=10 minutes, Interval
+                doubles each
+                time, 4 iterations, {10, 20, 40, 80}, 3H 10 M total.)</li>
+
+        </ul>
+    </div>
+    <div class="des">Tech stack:</div>
+
+    <div class="text">
+        <ul>
+            <li> Mobile app: Flutter</li>
+            <li> Database: Cloud Firestore</li>
+            <li> Authentication: Firebase Auth</li>
+            <li> Backend: Cloud Functions</li>
+            <li> Website: Firebase Hosting</li>
+            <li> User updates: Firebase Cloud Messaging</li>
+        </ul>
+    </div>
+    <div class="des"> Reporting: </div>
+
+    <div class="text">
+        A Cloud function is triggered at an arbitrary time of the day, it calculates the last sleep cycle’s metrics and
+        uses
+        Firebase Cloud Messaging to push a notification or message to the user with this information.
+
+        <br>
+        A Dashboard website is also available through Firebase Hosting with real time updates on metrics, and a more
+        detailed view of sleep statistics.
+
+        <br>
+        This would include, monthly, weekly, and all time.
+
+    </div>
+    <div class="des">
+        Report statistics:
+
+
+    </div>
+
+    <div class="text">
+        <table>
+            <tr>
+                <td> T2W, ESAT, TUS</td>
+                <td>
+                    Average, Median, Maximum, Minimum </td>
+            </tr>
+            <tr>
+                <td> SRC </td>
+                <td> Best days, (no reincidence),
+                    Worst days, (high reincidence)</td>
+            </tr>
+            <tr>
+                <td> SDW: Sleep Deprivation Warning </td>
+                <td> Triggered by:
+                    TUS under 6 hours AND SRC >= 3</td>
+            </tr>
+            <tr>
+                <td> Burnout Warning </td>
+                <td> Triggered by:
+                    SDW Three days of the same week OR Two days in a row.</td>
+            </tr>
+            <tr>
+                <td> ERO: Emergency Reach Out</td>
+                <td> Triggered by:
+                    Two Burnout Warnings in same week.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="des">
+        Motivational logic:
+    </div>
+    <div class="text">
+
+        As with reporting, when a good or best day is had, a notification or message will be sent to give the user some
+        positive feedback and motivate them to keep on schedule.
+
+    </div>
+    <div class="des">
+        Medication, Hydration, and Food Reminder:
+    </div>
+    <div class="text">
+        Notifications throughout the day reminding the user to drink water, take any needed meds, and check if they are
+        hungry. People with ADHD experience time blindness and hyperfocus, which can lead to spending large periods of
+        time
+        without checking on our own bodily needs, this can leave us unaware that we are hungry, or thirsty.
+
+
+        These reminders must be non imperative in their phrasing, and instead be framed as questions. This encourages
+        being
+        mindful without self blame, guilt, or triggering trauma response.
+
+
+        Some examples would include: Are you thirsty? Do you feel hungry? How about a drink of water? All of these
+        questions
+        are non confrontational.
+    </div>
+    <div class="des">
+        Early warning and auto reach out system:
+    </div>
+    <div class="text">
+        SDW and Burnout Warning notifications, worded with care and messages of reassurance to prevent self blame and
+        spirals.
+        ERO sends a message to a designated contact who is a trusted friend or relative that has agreed to check in and
+        provide support.
+    </div>
+    <div class="des">
+        Development Timeline:
+
+    </div>
+
+    <div class="text">
+        <ul>
+            <li>Application Outline</li>
+            <li> Create Firebase Project</li>
+            <li> Create Flutter Project</li>
+            <li> Application Front End:</li>
+            <ul>
+                <li> Main activity.</li>
+                <li> Settings activity.</li>
+                <li> Sign In Activity.</li>
+            </ul>
+            <li> Application website:</li>
+            <ul>
+                <li> Welcome page.</li>
+                <li> Sign Up page.</li>
+                <li> Login page.</li>
+                <li> Dashboard page.</li>
+            </ul>
+            <li> Integrate Firebase:</li>
+            <ul>
+                <li> Authentication.</li>
+                <ul>
+                    <li> For Flutter Application.</li>
+                    <li> For the Application Website.</li>
+                </ul>
+                <li> Firestore.</li>
+                <ul>
+                    <li> For User Settings.</li>
+                    <li> For User Metrics.</li>
+                </ul>
+                <li> Cloud functions.</li>
+                <ul>
+                    <li> For Motivation.</li>
+                    <li> For Reminders.</li>
+                    <li> For Warning System.</li>
+                </ul>
+                <li> Cloud Messaging.</li>
+                <ul>
+                    <li> For Cloud functions.</li>
+                </ul>
+            </ul>
+            <li> Build Demo.</li>
+            <ul>
+                <li> Presentation.</li>
+                <li> App Beta.</li>
+                <li> Website Beta.</li>
+                <li> Documentation.</li>
+            </ul>
+
+            <li>Final Presentation.</li>
+        </ul>
+
+    </div>
+
+    <div class="des">
+        Frequently Asked Questions:
+    </div>
+
+
+    <div class="text">
+        <table>
+            <tr>
+                <td> Why is it called Awaken?</td>
+                <td> <a href="https://www.youtube.com/watch?v=awT8FFHKikc"> Metalocalypse. </a></td>
+            </tr>
+            <tr>
+                <td> Why are you doing this? </td>
+                <td> As a person with ADHD we have to build ways to automate externally what our brains can’t
+                    easily do by themselves.</td>
+            </tr>
+            <tr>
+                <td> Why Flutter?</td>
+                <td> Because It's multi platform. Accessibility matters.</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyCfmnNIU0xKHh64HYxLM2ppVmYHq5rOdtc",
+            authDomain: "awaken-alarm.firebaseapp.com",
+            projectId: "awaken-alarm",
+            storageBucket: "awaken-alarm.appspot.com",
+            messagingSenderId: "88573950609",
+            appId: "1:88573950609:web:dd50a434b95c5304431d30",
+            measurementId: "G-DXGNMY6GPW"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+</body>
+
+</html>

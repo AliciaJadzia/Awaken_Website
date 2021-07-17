@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Import and configure the Firebase SDK -->
+  <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
+  <!-- If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+  <script src="/__/firebase/8.7.1/firebase-app.js"></script>
+  <script src="/__/firebase/8.7.1/firebase-auth.js"></script>
+  <script src="/__/firebase/init.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awaken :: Sign Up</title>
+</head>
+
+<body>
+  <div class="spacer">
+    <div class="subtitle">Create your Awaken account</div>
+
+    <input id="txtEmail" type="email" placeholder="Email">
+    <br>
+    <input id="txtNick" type="text" placeholder="Nickname">
+    <br>
+    <input id="txtPassword" type="password" placeholder="Password">
+    <br>
+    <input id="txtPassword" type="password" placeholder="Retype Password">
+    <br>
+
+    <button id="btnSignup" class="btn btn-action">Sign up</button>
+
+  </div>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyCfmnNIU0xKHh64HYxLM2ppVmYHq5rOdtc",
+      authDomain: "awaken-alarm.firebaseapp.com",
+      projectId: "awaken-alarm",
+      storageBucket: "awaken-alarm.appspot.com",
+      messagingSenderId: "88573950609",
+      appId: "1:88573950609:web:dd50a434b95c5304431d30",
+      measurementId: "G-DXGNMY6GPW"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+</body>
+
+</html>
