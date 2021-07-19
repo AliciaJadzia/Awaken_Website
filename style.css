@@ -6,11 +6,11 @@ body {
       font-family: 'Yusei Magic', sans-serif;
       float: left;
       color: lightskyblue;
-      font-size: 40px;
+      font-size: 42px;
       text-align: center;
       padding-top: 15px;
       padding-bottom: 15px;
-      padding-right: 15px;
+      padding-right: 20px;
       padding-left: 50px;
     }
     .subtitle {
