@@ -38,13 +38,21 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="/__/firebase/8.7.1/firebase-app.js"></script>
+    <script src="/__/firebase/8.7.1/firebase-auth.js"></script>
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+    <title>Awaken :: Dashboard</title>
 </head>
 
 <body>
+    <script src="dashboard.js"></script>
+
     <div class="topnav">
 
-    
+
+
         <div class="title"><img src="android-icon-72x72.png" alt="Logo"></div>
 
         <div class="title">
@@ -58,14 +66,17 @@
 
     </div>
     <br><br><br><br><br><br><br>
-    <div>
 
+    <div class="subtitle"><p id="namevar"></p></div>
+    <div>
+        <div class="des">Previous day</div>
         <div class="des">This week</div>
         <div class="des">This month</div>
         <div class="des">This year</div>
 
 
     </div>
+
 
 </body>
 
