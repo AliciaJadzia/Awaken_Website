@@ -1,4 +1,4 @@
-# Awaken (Cloud Functions for Firebase)
+# Awaken (Website/Web App)
 
 ## A caring Alarm Clock for Neurodivergent Folks.
 
@@ -12,3 +12,8 @@
 * Built signup
 * Built dashboard tempalte
 * Added firebase SDK
+* Added Sign up
+* Added log in
+* Added Cloud Firestore 
+* Added Nickname support
+* Added Personalized greeting
