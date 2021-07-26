@@ -34,22 +34,22 @@ const signUpFunction = () => {
     //Built in firebase function responsible for signing up a user
     auth.createUserWithEmailAndPassword(email, password)
         .then(() => {
-            db.collection("users").add({
+            const user = firebase.auth().currentUser;
+            const docid = user.uid;
+            db.collection("users").doc(docid).set({
                 email: email,
                 nickname: nickname,
                 buddy: "Default Buddy", // Default, gets overwritten by app. String
                 alarm_hour: 7, // Default, gets overwritten by app. Int 0 to 23
                 alarm_minute: 30, // Default, gets overwritten by app. Int 0 to 59
-            }).then((docRef) => {
-                console.log("Document written with ID: ", docRef.id);
-                const userid = docRef.id;
-                const user = firebase.auth().currentUser;
+            }).then(() => {
+                console.log("Document written with ID: ", docid);
+                
                 user.updateProfile({
                     displayName: nickname,
-                    photoURL: userid,
                 }).then(() => {
                     // Update successful
-                    console.log('Updated nickname & doc id', userid);
+                    console.log('Updated nickname & id', docid);
                     console.log('Signed Up Successfully !');
                     alert('You have signed up succesfully!');
                     location.href = "login.html";

@@ -4,7 +4,7 @@ firebase.auth().onAuthStateChanged((user) => {
       // https://firebase.google.com/docs/reference/js/firebase.User
       var uid = user.uid;
       var nickname = user.displayName;
-      var userDocument = user.photoURL; // Using the phone number to store the Firestore document id.
+      var userDocument = user.uid; // Using the phone number to store the Firestore document id.
       console.log(uid, nickname, userDocument);
       var greeting = "Hello "+nickname;
       document.getElementById('namevar').innerHTML = greeting;
@@ -12,6 +12,7 @@ firebase.auth().onAuthStateChanged((user) => {
     } else {
       // User is signed out
       console.log('Not logged in.');
+      alert('You have to log in to Awaken')
       // ...
     }
   });

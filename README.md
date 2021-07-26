@@ -17,3 +17,5 @@
 * Added Cloud Firestore 
 * Added Nickname support
 * Added Personalized greeting
+* Added firestore user document tracking
+* Fixed firestore user document tracking to make it safer
