@@ -43,8 +43,13 @@ const signUpFunction = () => {
                 alarm_hour: 7, // Default, gets overwritten by app. Int 0 to 23
                 alarm_minute: 30, // Default, gets overwritten by app. Int 0 to 59
             }).then(() => {
+
                 console.log("Document written with ID: ", docid);
-                
+                var tstamp = new Date();
+                var s = tstamp.toUTCString();
+                db.collection('users').doc(docid).collection('data').doc(s).set({
+                    dummy: 'Account Created'
+                });
                 user.updateProfile({
                     displayName: nickname,
                 }).then(() => {

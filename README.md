@@ -19,3 +19,4 @@
 * Added Personalized greeting
 * Added firestore user document tracking
 * Fixed firestore user document tracking to make it safer
+* Added a data collection with dummy document when user is created
